@@ -16,7 +16,6 @@ Include the script file, then install the component with `Vue.use(VueStrength);`
 
 ```html
 <script type="text/javascript" src="node_modules/vuejs/dist/vue.min.js"></script>
-<script type="text/javascript" src="node_modules/vue-clock-simple/dist/vue-clock.min.js"></script>
 <script type="text/javascript">
   Vue.use(VueStrength);
 </script>
