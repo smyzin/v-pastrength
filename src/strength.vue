@@ -28,7 +28,7 @@
 </template>
 
 <script>
-    import passwordChecker from './pasStrength'
+    import passwordChecker from './strengthClass'
 
     export default {
         name: 'Strength',

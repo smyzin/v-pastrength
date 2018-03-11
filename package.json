@@ -2,7 +2,7 @@
   "name": "v-strength",
   "version": "1.0.2",
   "description": "Vue component which verify password complexity",
-  "main": "strength.vue",
+  "main": "index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/smyzin/v-pastrength.git"
