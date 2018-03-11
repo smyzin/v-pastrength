@@ -63,4 +63,4 @@ class passStrength {
 
 }
 
-export default passStrength
+module.exports = passStrength;

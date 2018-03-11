@@ -28,7 +28,7 @@
 </template>
 
 <script>
-    import passwordChecker from './strengthClass'
+    import passStrength from './strengthClass.js'
 
     export default {
         name: 'Strength',
@@ -61,7 +61,7 @@
         },
         data(){
             return {
-                passwordClass: new passwordChecker,
+                passwordClass: new passStrength,
                 level: null,
                 levelText: null,
                 customColor: {

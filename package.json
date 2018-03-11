@@ -1,13 +1,10 @@
 {
   "name": "v-strength",
-  "version": "1.0.2",
+  "version": "1.0.6",
   "description": "Vue component which verify password complexity",
-  "main": "index.js",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/smyzin/v-pastrength.git"
-  },
+  "main": "dist/v-strength.js",
   "scripts": {
+    "build": "rimraf ./dist && webpack --config ./webpack.config.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -15,6 +12,10 @@
     "password strength",
     "v-pasStrength"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/smyzin/v-pastrength.git"
+  },
   "author": "TRN_sm",
   "license": "MIT"
 }
