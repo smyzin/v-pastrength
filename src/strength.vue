@@ -33,88 +33,76 @@
     export default {
         name: 'Strength',
         props: {
-            password: {type: String, default: ''},
-            label: {type: Boolean, default: false},
-            lang: {type: String, default: 'ru'},
-            colors: {type: Array, default: () = > {return []}
-        }
-    }
-    ,
-    watch:{
-        password()
-        {
-            this.verifyPassword(this.password);
-        }
-    }
-    ,
-    created()
-    {
-        if (this.colors !== []) {
-            for (let i in this.colors) {
-                console.log(this.colors[i].name, ' - ', this.colors[i].value);
-                if (this.colors[i].name === 'strong') {
-                    this.customColor.strong = this.colors[i].value;
-                }
-                if (this.colors[i].name === 'good') {
-                    this.customColor.good = this.colors[i].value;
-                }
-                if (this.colors[i].name === 'weak') {
-                    this.customColor.weak = this.colors[i].value;
-                }
+            password: { type: String, default: '' },
+            label: { type: Boolean, default: false },
+            lang: { type: String, default: 'ru' },
+            colors: { type: Array, default: ()=>{return []} }
+        },
+        watch:{
+            password(){
+                this.verifyPassword(this.password);
             }
-        }
-    }
-    ,
-    data()
-    {
-        return {
-            passwordClass: new passwordChecker,
-            level: null,
-            levelText: null,
-            customColor: {
-                strong: '#67C23A',
-                good: '#E6A23C',
-                weak: '#F56C6C'
-            }
-        }
-    }
-    ,
-    methods:{
-        switchLang()
-        {
-            switch (this.lang) {
-                case 'en':
-                    if (this.level > 80) {
-                        this.levelText = 'strong';
-                    } else if (this.level > 60) {
-                        this.levelText = 'good';
-                    } else if (this.level >= 30) {
-                        this.levelText = 'weak';
-                    } else {
-                        this.levelText = '';
+        },
+        created(){
+            if (this.colors !== []) {
+                for (let i in this.colors) {
+                    console.log(this.colors[i].name, ' - ', this.colors[i].value);
+                    if (this.colors[i].name === 'strong') {
+                        this.customColor.strong = this.colors[i].value;
                     }
-                    break;
-                case 'ru':
-                    if (this.level > 80) {
-                        this.levelText = 'сильный';
-                    } else if (this.level > 60) {
-                        this.levelText = 'хороший';
-                    } else if (this.level >= 30) {
-                        this.levelText = 'слабый';
-                    } else {
-                        this.levelText = '';
+                    if (this.colors[i].name === 'good') {
+                        this.customColor.good = this.colors[i].value;
                     }
-                    break;
+                    if (this.colors[i].name === 'weak') {
+                        this.customColor.weak = this.colors[i].value;
+                    }
+                }
             }
-
+        },
+        data(){
+            return {
+                passwordClass: new passwordChecker,
+                level: null,
+                levelText: null,
+                customColor: {
+                    strong: '#67C23A',
+                    good: '#E6A23C',
+                    weak: '#F56C6C'
+                }
+            }
+        },
+        methods:{
+            switchLang(){
+                switch (this.lang) {
+                    case 'en':
+                        if (this.level > 80) {
+                            this.levelText = 'strong';
+                        } else if (this.level > 60) {
+                            this.levelText = 'good';
+                        } else if (this.level >= 30) {
+                            this.levelText = 'weak';
+                        } else {
+                            this.levelText = '';
+                        }
+                        break;
+                    case 'ru':
+                        if (this.level > 80) {
+                            this.levelText = 'сильный';
+                        } else if (this.level > 60) {
+                            this.levelText = 'хороший';
+                        } else if (this.level >= 30) {
+                            this.levelText = 'слабый';
+                        } else {
+                            this.levelText = '';
+                        }
+                        break;
+                }
+            },
+            verifyPassword(){
+                this.level = this.passwordClass.check(this.password);
+                this.switchLang();
+            }
         }
-    ,
-        verifyPassword()
-        {
-            this.level = this.passwordClass.check(this.password);
-            this.switchLang();
-        }
-    }
     }
 </script>
 

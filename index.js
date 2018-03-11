@@ -1,4 +1,4 @@
-import Strength from 'src/strength';
+import Strength from '/src/strength';
 
 module.exports = {
     install: function (Vue, options) {
