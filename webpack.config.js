@@ -4,7 +4,7 @@ const path = require('path');
 
 var config = {
     output: {
-        path: path.resolve(__dirname + '/dist/'),
+        path: path.resolve(__dirname + '/dist/')
     },
     module: {
         loaders: [
@@ -24,9 +24,6 @@ var config = {
             }
         ]
     },
-    /*externals: {
-        moment: 'moment'
-    },*/
     plugins: [
         new webpack.optimize.UglifyJsPlugin( {
             minimize : true,
@@ -36,27 +33,21 @@ var config = {
                 warnings: false
             }
         } )
-    ]
+    ],
 };
-
 
 module.exports = [
     merge(config, {
-        entry: path.resolve(__dirname + '/index.js'),
+        entry: path.resolve(__dirname + '/src/plugin.js'),
         output: {
             filename: 'v-strength.min.js',
             libraryTarget: 'window',
             library: 'VueStrength',
-        }
+        },
+        externals: {
+            vue: 'vue',
+        },
     }),
-    /*merge(config, {
-        entry: path.resolve(__dirname + '/src/strengthClass.js'),
-        output: {
-            filename: 'vue-clock.min.js',
-            libraryTarget: 'window',
-            library: 'VueClock',
-        }
-    }),*/
     merge(config, {
         entry: path.resolve(__dirname + '/src/strength.vue'),
         output: {
