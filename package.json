@@ -1,0 +1,16 @@
+{
+  "name": "v-pastrength",
+  "version": "1.0.0",
+  "description": "Vue component which verify password complexity",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "vue-password",
+    "password strength",
+    "v-password"
+  ],
+  "author": "TRN_sm",
+  "license": "MIT"
+}
