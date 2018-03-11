@@ -29,6 +29,7 @@
 
 <script>
     export default {
+        name: 'Strength',
         props: {
             password: { type: String, default: '' },
             label: { type: Boolean, default: false },
@@ -98,24 +99,24 @@
             },
             verifyPassword(){
                 this.score = 0;
-                this.level = this._init(this.password);
+                this.level = this.initPas(this.password);
                 this.switchLang();
             },
             /* Class methods */
-            _init(password) {
-                this._findUnique(password);
-                this._bonusMix(password);
+            initPas(password) {
+                this.findUniquePas(password);
+                this.bonusMixPas(password);
 
-                return this._implementScore()
+                return this.implementScorePas()
             },
-            _findUnique(password) {
+            findUniquePas(password) {
                 let letters = new Object();
                 for (let i = 0; i < password.length; i++) {
                     letters[password[i]] = (letters[password[i]] || 0) + 1;
                     this.score += 5.0 / letters[password[i]];
                 }
             },
-            _bonusMix(password) {
+            bonusMixPas(password) {
                 let variations = {
                     digits: /\d/.test(password),
                     lower: /[a-z]/.test(password),
@@ -128,22 +129,22 @@
                 }
                 this.score += (variationCount - 1) * 10;
             },
-            // _implementScore() {
-            //     if (this.score > 80) {
-            //         console.log("strong");
-            //         return this.score;
-            //     }
-            //     if (this.score > 60) {
-            //         console.log("good");
-            //         return this.score;
-            //     }
-            //     if (this.score >= 30) {
-            //         console.log("weak");
-            //         return this.score;
-            //     }
-            //
-            //     return this.score;
-            // },
+            implementScorePas() {
+                if (this.score > 80) {
+                    console.log("strong");
+                    return this.score;
+                }
+                if (this.score > 60) {
+                    console.log("good");
+                    return this.score;
+                }
+                if (this.score >= 30) {
+                    console.log("weak");
+                    return this.score;
+                }
+
+                return this.score;
+            },
             // check(password) {
             //     this.score = 0;
             //     return this._init(password);

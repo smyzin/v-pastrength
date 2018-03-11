@@ -1,6 +1,6 @@
 {
   "name": "v-strength",
-  "version": "1.0.9",
+  "version": "1.0.14",
   "description": "Vue component which verify password complexity",
   "main": "dist/v-strength.js",
   "scripts": {
@@ -23,6 +23,7 @@
     "babel-preset-es2015": "^6.9.0",
     "babel-preset-stage-2": "^6.11.0",
     "babel-runtime": "^6.9.2",
+    "css-loader": "^0.28.10",
     "rimraf": "^2.6.1",
     "vue": "^2.2.1",
     "vue-html-loader": "^1.2.3",

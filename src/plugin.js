@@ -1,9 +1,9 @@
-import strength from './src/strength.vue';
+import strength from './strength.vue';
 
-module.exports = {
-    install(Vue) {
+let object = {
+    install: (Vue)=>{
         Vue.component('v-strength', strength);
     }
 };
 
-export {strength}
+export default object

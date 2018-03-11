@@ -2,6 +2,9 @@ const webpack = require('webpack');
 const merge = require('webpack-merge');
 const path = require('path');
 
+const resolve = {};
+
+
 var config = {
     output: {
         path: path.resolve(__dirname + '/dist/')
@@ -11,8 +14,8 @@ var config = {
             {
                 test: /\.js$/,
                 loader: 'babel',
-                include: __dirname,
-                exclude: /node_modules/
+                // include: __dirname,
+                // exclude: /node_modules/
             },
             {
                 test: /\.vue$/,
@@ -24,16 +27,16 @@ var config = {
             }
         ]
     },
-    plugins: [
-        new webpack.optimize.UglifyJsPlugin( {
-            minimize : true,
-            sourceMap : false,
-            mangle: true,
-            compress: {
-                warnings: false
-            }
-        } )
-    ],
+    // plugins: [
+    //     new webpack.optimize.UglifyJsPlugin( {
+    //         minimize : true,
+    //         sourceMap : false,
+    //         mangle: true,
+    //         compress: {
+    //             warnings: false
+    //         }
+    //     } )
+    // ],
 };
 
 module.exports = [
@@ -47,6 +50,7 @@ module.exports = [
         externals: {
             vue: 'vue',
         },
+        resolve: resolve,
     }),
     merge(config, {
         entry: path.resolve(__dirname + '/src/strength.vue'),
@@ -55,6 +59,7 @@ module.exports = [
             libraryTarget: 'umd',
             library: 'v-strength',
             umdNamedDefine: true
-        }
+        },
+        resolve: resolve,
     })
 ];
